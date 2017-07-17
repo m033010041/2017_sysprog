@@ -104,8 +104,13 @@ uint32_t mul32(uint32_t a, uint32_t b)
 
 但這樣似乎不符合 recurive 的規定，因此修改了程式
 
-
-
+```clike=
+uint32_t mul32_recursive(uint32_t a, uint32_t b)
+{
+    if(b == 0)
+	return 0;
+    else
+	return half_add(((b&1)?a:0), (mul32_recursive(a, b>>1)<< 1));
 
 
 ### Question 05
